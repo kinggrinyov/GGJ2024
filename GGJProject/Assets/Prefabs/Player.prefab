@@ -119,6 +119,7 @@ Transform:
   - {fileID: 7968385182229045195}
   - {fileID: 5137440953959812004}
   - {fileID: 4547388396983297033}
+  - {fileID: 7054911506937509590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4952961998052680160
@@ -162,9 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb95db1a2e91e094795774277e1a1a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <GunData>k__BackingField: {fileID: 11400000, guid: 3398357d67a5b3a4eba68ae8b9d3c48b, type: 2}
+  <ShootTransform>k__BackingField: {fileID: 7054911506937509590}
   <MovementSpeed>k__BackingField: 10
   <JumpSpeed>k__BackingField: 6
   <JumpLimit>k__BackingField: 2
+  <InputHorizontalAxisName>k__BackingField: Horizontal
+  <InputJumpName>k__BackingField: Jump
+  <InputShootGunName>k__BackingField: Fire1
 --- !u!54 &4342455353211341123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -192,6 +198,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!1 &6412416353838347621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7054911506937509590}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7054911506937509590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6412416353838347621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.376, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 194356878650449074}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8049986223668362793
 GameObject:
   m_ObjectHideFlags: 0

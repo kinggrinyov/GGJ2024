@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waypointPath: {fileID: 3628437178280308471}
-  _speed: 10
+  _speed: 4
 --- !u!1 &4728912316993207975
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,29 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun
 {
-    [SerializeField]
-    GameObject ammo;
+    private GunData _gunData = null;
 
-    [SerializeField]
-    float bulletSpeed = 3000;
+    float _firingCooldown = 0;
 
-    [SerializeField]
-    float fireRate = 2;
+    private Transform _shootTransform = null;   
 
-    float delayedfire = 0;
-    void Update()
+    public Gun(Transform shootTransform, GunData gunData)
     {
-        if (Input.GetKey(KeyCode.X))
+        _shootTransform = shootTransform;
+        _gunData = gunData;
+    }
+
+    public void Shoot()
+    {
+        if (_firingCooldown > 0)
         {
-            if (delayedfire <= 0)
-            {
-                GameObject temp = Object.Instantiate(ammo, this.transform);
-                temp.GetComponent<Rigidbody>().AddForce(new Vector3(bulletSpeed, 0, 0));
-                delayedfire = fireRate;
-            }
+            return;
         }
-        delayedfire -= Time.deltaTime;
+
+        GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
+
+        bulletGo.GetComponent<Rigidbody>().AddForce(new Vector3(_gunData.ProjectileSpeed, 0, 0));
+
+        _firingCooldown = _gunData.ShootCooldown;
+    }
+
+    public void Update()
+    {
+        _firingCooldown -= Time.deltaTime;
     }
 }

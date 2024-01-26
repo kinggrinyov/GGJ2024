@@ -6,6 +6,12 @@ public class Player : MonoBehaviour
     GroundChecker _groundChecker = null;
 
     [field: SerializeField]
+    public GunData GunData { get; private set; }
+
+    [field: SerializeField]
+    public Transform ShootTransform { get; private set; }
+
+    [field: SerializeField]
     public float MovementSpeed { get; private set; }
     [field: SerializeField]
     public float JumpSpeed { get; private set; }
@@ -18,6 +24,11 @@ public class Player : MonoBehaviour
     public string InputHorizontalAxisName { get; private set; } = "Horizontal";
     [field: SerializeField]
     public string InputJumpName { get; private set; } = "Jump";
+    [field: SerializeField]
+    public string InputShootGunName { get; private set; } = "Fire1";
+
+    public Gun _currentGun = null;
+
 
     void Awake()
     {
@@ -25,6 +36,8 @@ public class Player : MonoBehaviour
         _groundChecker = GetComponentInChildren<GroundChecker>();
 
         _groundChecker.OnGroundColliderEntered += ResetJumps;
+
+        _currentGun = new Gun(ShootTransform, GunData);
     }
 
     // Update is called once per frame
@@ -32,6 +45,13 @@ public class Player : MonoBehaviour
     {
         UpdateMovement();
         UpdateJumping();
+
+        _currentGun.Update();
+
+        if (Input.GetButtonDown(InputShootGunName))
+        {
+            _currentGun.Shoot();
+        }
     }
 
     private void UpdateMovement()
