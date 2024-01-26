@@ -10,4 +10,9 @@ public class UIControl : MonoBehaviour
     {
         SceneManager.LoadScene("Game");       
     }
+
+    public void QuitGame() 
+    {
+        Application.Quit();
+    }
 }
