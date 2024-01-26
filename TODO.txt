@@ -1,0 +1,24 @@
+[Player]
+- left and right movement (A & D, Left Arrow & Right Array)
+- jumping & gravity (W, Up Arrow)
+- shoot left & right (Space, Numpad 1)
+- take damage
+- die
+- health
+
+[Weapons]
+- projectiles
+- deal damage
+- weapons
+
+
+[Level]
+- Flat plane with platforms.
+
+
+[game events]
+- player wins, then game restarts.
+
+
+[Want do]
+- Grapple Straight Rope (E or Numpad 2)
