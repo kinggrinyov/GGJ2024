@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <GunData>k__BackingField: {fileID: 11400000, guid: 3398357d67a5b3a4eba68ae8b9d3c48b, type: 2}
   <ShootTransform>k__BackingField: {fileID: 7054911506937509590}
-  <MovementSpeed>k__BackingField: 10
+  <MovementSpeed>k__BackingField: 5
   <JumpSpeed>k__BackingField: 6
   <JumpLimit>k__BackingField: 2
   <MaximumHealth>k__BackingField: 50
