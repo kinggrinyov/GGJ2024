@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformScript : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
     [SerializeField]
     private WaypointPath _waypointPath;
@@ -17,6 +17,17 @@ public class PlatformScript : MonoBehaviour
 
     private float _timeToWaypoint;
     private float _elapsedTime;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Player")
+            collision.gameObject.transform.SetParent(transform);
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "Player")
+            collision.gameObject.transform.SetParent(null);
+    }
 
     // Start is called before the first frame update
     void Start()
