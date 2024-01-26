@@ -28,7 +28,7 @@ public class Gun
             return;
         }
 
-        float segmentAngle = _gunData.ArcAngle / _gunData.ProjectileAmount;
+        float segmentAngle = _gunData.ArcAngle / Mathf.Max(_gunData.ProjectileAmount - 1, 1);
         float startingAngle = _gunData.ArcAngle / 2;
 
         for (int i = 0; i < _gunData.ProjectileAmount; i++)
