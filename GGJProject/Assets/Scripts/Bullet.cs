@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
     [SerializeField]
     float damage = 7;
 
@@ -13,9 +12,12 @@ public class Bullet : MonoBehaviour
     private float timer = 0;
     private void OnTriggerEnter(Collider other)
     {
-        //if player, deal damage
+        if(other.TryGetComponent<Player>(out Player player))
+        {
+            player.TakeDamage(damage);
+        }
+
         Destroy(gameObject);
-        
     }
 
     private void Update()

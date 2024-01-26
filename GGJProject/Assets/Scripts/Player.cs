@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public float JumpSpeed { get; private set; }
     [field: SerializeField]
     public int JumpLimit { get; private set; }
+    [field: SerializeField]
+    public float MaximumHealth { get; private set; }
 
     private int _jumpsLeft = 0;
 
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
 
     public Gun _currentGun = null;
 
+    private float _currentHealth = 0;
 
     void Awake()
     {
@@ -38,6 +41,8 @@ public class Player : MonoBehaviour
         _groundChecker.OnGroundColliderEntered += ResetJumps;
 
         _currentGun = new Gun(ShootTransform, GunData);
+
+        _currentHealth = MaximumHealth;
     }
 
     // Update is called once per frame
@@ -95,5 +100,23 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, direction == 1 ? 0 : -180, 0));
         }
+    }
+    public void TakeDamage(float damage)
+    {
+        Debug.Log($"{gameObject.name} Took {damage} Damage");
+
+        _currentHealth -= damage;
+
+        if(_currentHealth > 0)
+        {
+            return;
+        }
+        
+        Die();
+    }
+
+    private void Die()
+    {
+        Debug.Log($"{gameObject.name} Died");
     }
 }

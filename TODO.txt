@@ -2,9 +2,9 @@
 X - left and right movement (A & D, Left Arrow & Right Array)
 X - jumping & gravity (W, Up Arrow)
 X - shoot left & right (Space, Numpad 1)
-- take damage
-- die
-- health
+X - take damage
+X - die
+X - health
 
 [Weapons]
 X - projectiles
