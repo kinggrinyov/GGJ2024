@@ -376,8 +376,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5068803207239244697, guid: c1a18f3245e0cc54b8f692e94efd08e3, type: 3}
       propertyPath: _speed
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5445538152846210269, guid: c1a18f3245e0cc54b8f692e94efd08e3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df79380eec32ce4881196e9be21fa2f, type: 2}
+    - target: {fileID: 7828025744083389659, guid: c1a18f3245e0cc54b8f692e94efd08e3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3df79380eec32ce4881196e9be21fa2f, type: 2}
     - target: {fileID: 8048904083101884200, guid: c1a18f3245e0cc54b8f692e94efd08e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
