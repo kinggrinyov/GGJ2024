@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
         _groundChecker.OnGroundColliderEntered += ResetJumps;
 
-        _currentGun = new Gun(ShootTransform, GunData);
+        _currentGun = new Gun(ShootTransform, GunData, transform);
 
         _currentHealth = MaximumHealth;
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gun
@@ -9,9 +10,12 @@ public class Gun
     float _firingCooldown = 0;
 
     private Transform _shootTransform = null;   
+    private Transform _ownerTransform = null;   
 
-    public Gun(Transform shootTransform, GunData gunData)
+    public Gun(Transform shootTransform, GunData gunData, Transform playerTransform)
     {
+
+        _ownerTransform = playerTransform;
         _shootTransform = shootTransform;
         _gunData = gunData;
     }
@@ -22,16 +26,18 @@ public class Gun
         {
             return;
         }
+        for (int i = 0; i < _gunData.ProjectileAmount; i++)
+        {
+            GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
+            bulletGo.GetComponent<Bullet>().Init(_ownerTransform);
 
-        GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
-
-        Vector3 bulletDirection = _shootTransform.forward;
-        bulletDirection.y = 0;
-        bulletDirection.z = 0;
-        bulletDirection.Normalize();
-
-        bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
-
+            Vector3 bulletDirection = _shootTransform.forward;
+            bulletDirection.y = 0;
+            bulletDirection.z = 0;
+            bulletDirection.Normalize();
+    
+            bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
+        }
         _firingCooldown = _gunData.ShootCooldown;
     }
 

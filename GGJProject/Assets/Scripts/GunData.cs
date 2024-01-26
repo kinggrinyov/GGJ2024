@@ -11,4 +11,7 @@ public class GunData : ScriptableObject
 
     [field: SerializeField]
     public float ShootCooldown { get; private set; }
+
+    [field: SerializeField]
+    public int ProjectileAmount { get; private set; }
 }
