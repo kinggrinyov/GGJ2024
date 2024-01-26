@@ -25,7 +25,12 @@ public class Gun
 
         GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
 
-        bulletGo.GetComponent<Rigidbody>().AddForce(new Vector3(_gunData.ProjectileSpeed, 0, 0));
+        Vector3 bulletDirection = _shootTransform.forward;
+        bulletDirection.y = 0;
+        bulletDirection.z = 0;
+        bulletDirection.Normalize();
+
+        bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
 
         _firingCooldown = _gunData.ShootCooldown;
     }
