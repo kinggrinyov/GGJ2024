@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
 public class Gun
@@ -26,16 +27,21 @@ public class Gun
         {
             return;
         }
+
+        float segmentAngle = _gunData.ArcAngle / _gunData.ProjectileAmount;
+        float startingAngle = _gunData.ArcAngle / 2;
+
         for (int i = 0; i < _gunData.ProjectileAmount; i++)
         {
             GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
             bulletGo.GetComponent<Bullet>().Init(_ownerTransform);
 
             Vector3 bulletDirection = _shootTransform.forward;
-            bulletDirection.y = 0;
             bulletDirection.z = 0;
+
+            bulletDirection = Quaternion.AngleAxis(startingAngle - (segmentAngle*i), _shootTransform.right) * bulletDirection;
+
             bulletDirection.Normalize();
-    
             bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
         }
         _firingCooldown = _gunData.ShootCooldown;
