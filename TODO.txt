@@ -17,7 +17,7 @@ X - Flat plane with platforms.
 
 
 [game events]
-- player wins, then game restarts.
+X - player wins, then game restarts.
 
 [Want do]
 - Grapple Straight Rope (E or Numpad 2)
