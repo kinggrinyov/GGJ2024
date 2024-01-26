@@ -168,10 +168,12 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 5
   <JumpSpeed>k__BackingField: 6
   <JumpLimit>k__BackingField: 2
+  <FastFallSpeed>k__BackingField: 10
   <MaximumHealth>k__BackingField: 50
   <InputHorizontalAxisName>k__BackingField: Horizontal
   <InputJumpName>k__BackingField: Jump
   <InputShootGunName>k__BackingField: Fire1
+  <InputFastFallName>k__BackingField: FastFall
 --- !u!54 &4342455353211341123
 Rigidbody:
   m_ObjectHideFlags: 0

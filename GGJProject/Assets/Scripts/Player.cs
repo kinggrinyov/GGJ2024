@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     [field: SerializeField]
     public int JumpLimit { get; private set; }
     [field: SerializeField]
+    public float FastFallSpeed { get; private set; }
+    [field: SerializeField]
     public float MaximumHealth { get; private set; }
 
     private int _jumpsLeft = 0;
@@ -28,6 +30,9 @@ public class Player : MonoBehaviour
     public string InputJumpName { get; private set; } = "Jump";
     [field: SerializeField]
     public string InputShootGunName { get; private set; } = "Fire1";
+
+    [field: SerializeField]
+    public string InputFastFallName { get; private set; } = "FastFall";
 
     public Gun _currentGun = null;
 
@@ -53,6 +58,12 @@ public class Player : MonoBehaviour
         UpdateMovement(inputX);
         UpdateDirection(inputX);
         UpdateJumping();
+
+        if(Input.GetButtonDown(InputFastFallName))
+        {
+            Vector3 originalVelocity = _rigidbody.velocity;
+            _rigidbody.velocity = new Vector3(originalVelocity.x, -FastFallSpeed, 0);
+        }
 
         _currentGun.Update();
 
