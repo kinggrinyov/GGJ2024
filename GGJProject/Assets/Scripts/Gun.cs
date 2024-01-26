@@ -16,12 +16,11 @@ public class Gun : MonoBehaviour
     float delayedfire = 0;
     void Update()
     {
-        GameObject temp = null;
         if (Input.GetKey(KeyCode.X))
         {
             if (delayedfire <= 0)
             {
-                temp = Object.Instantiate(ammo, this.transform);
+                GameObject temp = Object.Instantiate(ammo, this.transform);
                 temp.GetComponent<Rigidbody>().AddForce(new Vector3(bulletSpeed, 0, 0));
                 delayedfire = fireRate;
             }
