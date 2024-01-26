@@ -118,5 +118,6 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log($"{gameObject.name} Died");
+        GameInstance.Instance.PlayerDied();
     }
 }

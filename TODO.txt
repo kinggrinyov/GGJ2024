@@ -8,7 +8,7 @@ X - health
 
 [Weapons]
 X - projectiles
-- deal damage
+X - deal damage
 - weapons
 
 
