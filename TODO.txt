@@ -1,6 +1,6 @@
 [Player]
 X - left and right movement (A & D, Left Arrow & Right Array)
-- jumping & gravity (W, Up Arrow)
+X - jumping & gravity (W, Up Arrow)
 - shoot left & right (Space, Numpad 1)
 - take damage
 - die
