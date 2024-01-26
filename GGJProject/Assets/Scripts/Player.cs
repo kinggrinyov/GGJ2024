@@ -43,7 +43,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateMovement();
+        int inputX = Mathf.RoundToInt(Input.GetAxis(InputHorizontalAxisName));
+
+        UpdateMovement(inputX);
+        UpdateDirection(inputX);
         UpdateJumping();
 
         _currentGun.Update();
@@ -54,16 +57,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void UpdateMovement()
+    private void UpdateMovement(int inputX)
     {
-        float inputX = Input.GetAxis(InputHorizontalAxisName);
-
         Vector3 originalVelocity = _rigidbody.velocity;
 
         Vector3 movementDelta = new Vector3(MovementSpeed * inputX, originalVelocity.y, 0);
 
         _rigidbody.velocity = movementDelta;
     }
+
     private void UpdateJumping()
     {
         if(Input.GetButtonDown(InputJumpName))
@@ -84,5 +86,14 @@ public class Player : MonoBehaviour
     private void ResetJumps()
     {
         _jumpsLeft = JumpLimit;
+    }
+
+    private void UpdateDirection(int inputX)
+    {
+        int direction = inputX;
+        if (direction != 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, direction == 1 ? 0 : -180, 0));
+        }
     }
 }
