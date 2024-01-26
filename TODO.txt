@@ -7,13 +7,13 @@ X - jumping & gravity (W, Up Arrow)
 - health
 
 [Weapons]
-- projectiles
+X - projectiles
 - deal damage
 - weapons
 
 
 [Level]
-- Flat plane with platforms.
+X - Flat plane with platforms.
 
 
 [game events]

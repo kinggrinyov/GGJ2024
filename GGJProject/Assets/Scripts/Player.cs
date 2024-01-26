@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
 
     private int _jumpsLeft = 0;
 
+    [field: SerializeField]
+    public string InputHorizontalAxisName { get; private set; } = "Horizontal";
+    [field: SerializeField]
+    public string InputJumpName { get; private set; } = "Jump";
+
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -31,7 +36,7 @@ public class Player : MonoBehaviour
 
     private void UpdateMovement()
     {
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX = Input.GetAxis(InputHorizontalAxisName);
 
         Vector3 originalVelocity = _rigidbody.velocity;
 
@@ -41,7 +46,7 @@ public class Player : MonoBehaviour
     }
     private void UpdateJumping()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown(InputJumpName))
         {
             if(_jumpsLeft == 0)
             {
