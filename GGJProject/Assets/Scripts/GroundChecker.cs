@@ -8,7 +8,11 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other.transform.name}");
+        if(other.tag != "Ground")
+        {
+            return;
+        }
+
 
         OnGroundColliderEntered?.Invoke();
     }
