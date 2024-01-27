@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec337aa04b1738842ac42bae80b00f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effect: {fileID: 0}
+  _explosionPfx: {fileID: 3460726562322051492}
 --- !u!54 &1640840876105935469
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -276,11 +276,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+--- !u!198 &3460726562322051492 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+  m_PrefabInstance: {fileID: 8043233711733040210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3869608683691464155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6497800267713032585, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}

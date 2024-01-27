@@ -6,6 +6,9 @@ using UnityEngine.Experimental.GlobalIllumination;
 
 public class Trap : Bullet
 {
+    [SerializeField]
+    private ParticleSystem _explosionPfx = null;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Player>(out Player player))
@@ -14,8 +17,8 @@ public class Trap : Bullet
             {
                 return;
             }
-            player.TakeDamage(_gundata.damage);
-            Destroy(gameObject);
+
+            Explode(player);
         }
 
         if (other.gameObject.TryGetComponent<Trap>(out Trap trap))
@@ -24,7 +27,21 @@ public class Trap : Bullet
             {
                 return;
             }
-            Destroy(gameObject);
+
+            Explode(null);
         }
+    }
+
+    private void Explode(Player player)
+    {
+        if(player != null)
+        {
+            player.TakeDamage(_gundata.damage);
+        }
+
+        _explosionPfx.transform.SetParent(null);
+        _explosionPfx.Play();
+
+        Destroy(gameObject);
     }
 }

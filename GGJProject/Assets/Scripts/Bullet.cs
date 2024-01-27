@@ -11,8 +11,6 @@ public class Bullet : MonoBehaviour
 
     protected Transform _ownerTransform;
 
-    [SerializeField]
-    protected GameObject _effect;
     public void Init(Transform ownerTransform, GunData gundata)
     {
         _ownerTransform = ownerTransform;
