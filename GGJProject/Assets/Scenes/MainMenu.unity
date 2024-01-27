@@ -788,6 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2243c7c43120542948764442c09d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectableToSelect: {fileID: 1460774977}
 --- !u!114 &1126392788
 MonoBehaviour:
   m_ObjectHideFlags: 0

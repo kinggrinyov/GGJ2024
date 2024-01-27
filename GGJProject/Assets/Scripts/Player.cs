@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
         _currentGun.Update();
 
-        if (Input.GetButtonDown(InputShootGunName))
+        if (Input.GetButton(InputShootGunName))
         {
             _currentGun.Shoot();
         }

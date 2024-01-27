@@ -11,6 +11,9 @@ public class Bullet : MonoBehaviour
 
     protected Transform _ownerTransform;
 
+    [SerializeField]
+    private ParticleSystem _explodePfx = null;
+
     public void Init(Transform ownerTransform, GunData gundata)
     {
         _ownerTransform = ownerTransform;
@@ -36,6 +39,11 @@ public class Bullet : MonoBehaviour
             }
         }
 
+
+        _explodePfx.transform.SetParent(null);
+        _explodePfx.Play();
+        GameObject.Destroy(_explodePfx.gameObject, 2f);
+
         Destroy(gameObject);
     }
 
@@ -45,4 +53,6 @@ public class Bullet : MonoBehaviour
         if (timer >= _gundata.LifeSpan)
             Destroy(gameObject);
     }
+
+
 }
