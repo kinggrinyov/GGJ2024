@@ -43,6 +43,7 @@ public class Gun
 
         if(CurrentAmmo <= 0)
         {
+            Reload();
             return;
         }
 
