@@ -5,18 +5,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField]
-    float damage = 7;
+    protected GunData _gundata = null;   
+    
+    protected float timer = 0;
 
-    [SerializeField]
-    private float BulletLifetime = 5;
-    private float timer = 0;
+    protected Transform _ownerTransform;
 
-    private Transform _ownerTransform;
-
-    public void Init(Transform ownerTransform)
+    public void Init(Transform ownerTransform, GunData gundata)
     {
         _ownerTransform = ownerTransform;
+        _gundata = gundata;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +25,7 @@ public class Bullet : MonoBehaviour
             {
                 return;
             }
-            player.TakeDamage(damage);
+            player.TakeDamage(_gundata.damage);
         }
         
         if (other.TryGetComponent<Bullet>(out Bullet bullet))
@@ -44,7 +42,7 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= BulletLifetime)
+        if (timer >= _gundata.LifeSpan)
             Destroy(gameObject);
     }
 }

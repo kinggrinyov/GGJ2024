@@ -17,4 +17,8 @@ public class GunData : ScriptableObject
 
     [field: SerializeField]
     public float ArcAngle { get; private set; }
+    [field: SerializeField]
+    public float damage { get; private set; }
+    [field:SerializeField]
+    public float LifeSpan {  get; private set; }
 }

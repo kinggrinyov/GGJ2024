@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: GunData
   m_EditorClassIdentifier: 
   <ProjectilePrefab>k__BackingField: {fileID: 5025365187842286589, guid: db6d0d3b7a8c5e74ea42256e520eb9e3, type: 3}
-  <ProjectileSpeed>k__BackingField: 1000
+  <ProjectileSpeed>k__BackingField: 900
   <ShootCooldown>k__BackingField: 0.2
-  <ProjectileAmount>k__BackingField: 2
+  <ProjectileAmount>k__BackingField: 3
+  <ArcAngle>k__BackingField: 0
+  <damage>k__BackingField: 7
+  <LifeSpan>k__BackingField: 5
