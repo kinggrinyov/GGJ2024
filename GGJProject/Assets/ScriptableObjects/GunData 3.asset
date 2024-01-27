@@ -15,8 +15,8 @@ MonoBehaviour:
   <ProjectilePrefab>k__BackingField: {fileID: 5025365187842286589, guid: db6d0d3b7a8c5e74ea42256e520eb9e3, type: 3}
   <ProjectileSpeed>k__BackingField: 800
   <ShootCooldown>k__BackingField: 1
-  <ProjectileAmount>k__BackingField: 32
+  <ProjectileAmount>k__BackingField: 8
   <ArcAngle>k__BackingField: 45
   <damage>k__BackingField: 3
   <LifeSpan>k__BackingField: 5
-  <maxAmmo>k__BackingField: 8
+  <maxAmmo>k__BackingField: 32

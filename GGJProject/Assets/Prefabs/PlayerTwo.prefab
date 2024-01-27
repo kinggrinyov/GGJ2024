@@ -65,6 +65,10 @@ PrefabInstance:
       value: Jump2
       objectReference: {fileID: 0}
     - target: {fileID: 7847942528657347297, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
+      propertyPath: <InputChangeWeapon>k__BackingField
+      value: SwapWep2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7847942528657347297, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
       propertyPath: <InputFastFallName>k__BackingField
       value: FastFall2
       objectReference: {fileID: 0}

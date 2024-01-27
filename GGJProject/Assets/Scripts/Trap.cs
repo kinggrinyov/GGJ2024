@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class Trap : Bullet
 {
@@ -13,7 +15,6 @@ public class Trap : Bullet
                 return;
             }
             player.TakeDamage(_gundata.damage);
-
             Destroy(gameObject);
         }
 

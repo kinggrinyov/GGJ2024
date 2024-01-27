@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun
 {
     private GunData _gunData = null;
 
-    //guns' fire rate
+
     float _firingCooldown = 0;
 
     private Transform _shootTransform = null;   
     private Transform _ownerTransform = null;
 
+
     public Gun(Transform shootTransform, GunData gunData, Transform playerTransform)
     {
+
 
         _ownerTransform = playerTransform;
         _shootTransform = shootTransform;
