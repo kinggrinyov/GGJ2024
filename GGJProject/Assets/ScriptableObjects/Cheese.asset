@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <DisplayName>k__BackingField: Stinky Cheese
   <ProjectilePrefab>k__BackingField: {fileID: 7318706874260724465, guid: 85bd4d3810b7b594eb5b4dbdc8446a38, type: 3}
-  <ProjectileSpeed>k__BackingField: 250
+  <ProjectileSpeed>k__BackingField: 600
   <ShootCooldown>k__BackingField: 0.2
   <ProjectileAmount>k__BackingField: 1
   <ArcAngle>k__BackingField: 0
