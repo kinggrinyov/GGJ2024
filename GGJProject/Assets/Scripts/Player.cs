@@ -33,10 +33,19 @@ public class Player : MonoBehaviour
 
     [field: SerializeField]
     public string InputFastFallName { get; private set; } = "FastFall";
-
+    
     public Gun _currentGun = null;
 
     private float _currentHealth = 0;
+
+    public Renderer _playerRenderer = null;
+
+    private bool _damageBool = false;
+
+    public Color _playerColor;
+    public float DamageDuration;
+
+    public float _damageTime = 0;
 
     void Awake()
     {
@@ -48,6 +57,12 @@ public class Player : MonoBehaviour
         _currentGun = new Gun(ShootTransform, GunData, transform);
 
         _currentHealth = MaximumHealth;
+
+        _playerRenderer = this.GetComponentInChildren<Renderer>();
+
+        _playerColor = _playerRenderer.material.color;
+
+        DamageDuration = 0.1f;
     }
 
     // Update is called once per frame
@@ -70,6 +85,18 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown(InputShootGunName))
         {
             _currentGun.Shoot();
+        }
+
+        if (_damageBool)
+        {
+            _damageTime += Time.deltaTime;
+            if (_damageTime > DamageDuration)
+            {
+                Debug.Log("change color back");
+                _playerRenderer.material.SetColor("_Color", _playerColor);
+                _damageBool = false;
+                _damageTime = 0;
+            }
         }
     }
 
@@ -120,6 +147,9 @@ public class Player : MonoBehaviour
 
         if(_currentHealth > 0)
         {
+            _damageBool = true;
+            _playerRenderer.material.SetColor("_Color", Color.grey);
+
             return;
         }
         
