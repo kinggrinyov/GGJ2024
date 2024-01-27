@@ -33,7 +33,12 @@ public class GameInstance : MonoBehaviour
     public void PlayerDied(string deadPlayerName)
     {
         LastPlayerNameLost = deadPlayerName;
-        
+
+        Invoke(nameof(GoToMainMenu), 0.70f);
+    }
+
+    private void GoToMainMenu()
+    {
         SceneManager.LoadScene("MainMenu");
     }
 }

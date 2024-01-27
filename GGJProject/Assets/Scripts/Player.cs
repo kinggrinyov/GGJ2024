@@ -1,9 +1,13 @@
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     Rigidbody _rigidbody = null;
     GroundChecker _groundChecker = null;
+
+    [SerializeField]
+    private MMF_Player _deathFeedback = null;
 
     [field:SerializeField]
     public GunData[] guns;
@@ -194,7 +198,6 @@ public class Player : MonoBehaviour
         {
             _damageBool = true;
             _playerRenderer.material.SetColor("_Color", Color.grey);
-
             return;
         }
         
@@ -203,7 +206,12 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        _deathFeedback.PlayFeedbacks();
+
+        gameObject.SetActive(false);
+
         Debug.Log($"{gameObject.name} Died");
         GameInstance.Instance.PlayerDied(gameObject.name);
     }
+
 }

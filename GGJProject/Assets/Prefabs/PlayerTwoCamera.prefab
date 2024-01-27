@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5754424858099993873, guid: 6ce68664793b6554c9704e55785973bc, type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9064859866789847648, guid: 6ce68664793b6554c9704e55785973bc, type: 3}
       propertyPath: m_Name
       value: PlayerTwoCamera
