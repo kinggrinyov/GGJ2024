@@ -281,7 +281,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+      propertyPath: lengthInSec
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6888737264117847542, guid: 361eef96f1bf224418045ccc4f995b56, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
