@@ -12,7 +12,7 @@ public class Gun
     float _firingCooldown = 0;
 
     private Transform _shootTransform = null;   
-    private Transform _ownerTransform = null;   
+    private Transform _ownerTransform = null;
 
     public Gun(Transform shootTransform, GunData gunData, Transform playerTransform)
     {
@@ -20,11 +20,17 @@ public class Gun
         _ownerTransform = playerTransform;
         _shootTransform = shootTransform;
         _gunData = gunData;
+        _gunData.curAmmo = _gunData.maxAmmo;
     }
 
     public void Shoot()
     {
         if (_firingCooldown > 0)
+        {
+            return;
+        }
+
+        if(_gunData.curAmmo <= 0)
         {
             return;
         }
@@ -53,6 +59,7 @@ public class Gun
 
         bulletDirection.Normalize();
         bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
+        _gunData.curAmmo--;
     }
 
     public void Update()

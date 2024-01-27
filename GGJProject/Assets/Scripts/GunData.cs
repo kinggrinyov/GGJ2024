@@ -21,4 +21,9 @@ public class GunData : ScriptableObject
     public float damage { get; private set; }
     [field:SerializeField]
     public float LifeSpan {  get; private set; }
+
+    [field:SerializeField]
+    public int maxAmmo { get; private set; }
+
+    public int curAmmo { get; set; }
 }
