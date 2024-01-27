@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameInstance : MonoBehaviour
 {
@@ -20,8 +21,12 @@ public class GameInstance : MonoBehaviour
         }
     }
 
-    public void PlayerDied()
+    public void PlayerDied(string gameobjectName)
     {
         SceneManager.LoadScene("MainMenu");
+        
+        //SEND THIS
+        string result = gameobjectName + "Wins!";
+
     }
 }
