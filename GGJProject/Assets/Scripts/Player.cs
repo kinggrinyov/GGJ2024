@@ -5,8 +5,11 @@ public class Player : MonoBehaviour
     Rigidbody _rigidbody = null;
     GroundChecker _groundChecker = null;
 
-    [field: SerializeField]
-    public GunData GunData { get; private set; }
+    [field:SerializeField]
+    public GunData[] guns;
+    private Gun[] initializedGuns;
+    int AmountOfGuns = 0;
+    int CurrentGun = 0;
 
     [field: SerializeField]
     public Transform ShootTransform { get; private set; }
@@ -33,7 +36,11 @@ public class Player : MonoBehaviour
 
     [field: SerializeField]
     public string InputFastFallName { get; private set; } = "FastFall";
-    
+
+    [field: SerializeField]
+    public string InputChangeWeapon { get; private set; } = "SwapWep";
+
+    [field:SerializeField]
     public Gun _currentGun = null;
 
     private float _currentHealth = 0;
@@ -54,14 +61,20 @@ public class Player : MonoBehaviour
 
         _groundChecker.OnGroundColliderEntered += ResetJumps;
 
-        _currentGun = new Gun(ShootTransform, GunData, transform);
-
         _currentHealth = MaximumHealth;
 
         _playerRenderer = this.GetComponentInChildren<Renderer>();
 
         _playerColor = _playerRenderer.material.color;
 
+        AmountOfGuns = guns.Length;
+
+        initializedGuns = new Gun[AmountOfGuns];
+        for (int i = 0; i < AmountOfGuns; i++)
+        {
+            initializedGuns[i] = new Gun(ShootTransform, guns[i], transform);
+        }
+        _currentGun = initializedGuns[0];
     }
 
     // Update is called once per frame
@@ -72,6 +85,8 @@ public class Player : MonoBehaviour
         UpdateMovement(inputX);
         UpdateDirection(inputX);
         UpdateJumping();
+
+        changeWeapons();
 
         if(Input.GetButtonDown(InputFastFallName))
         {
@@ -95,6 +110,24 @@ public class Player : MonoBehaviour
                 _playerRenderer.material.SetColor("_Color", _playerColor);
                 _damageBool = false;
                 _damageTime = 0;
+            }
+        }
+    }
+
+    void changeWeapons() 
+    {
+        if (Input.GetButtonDown(InputChangeWeapon))
+        {
+            if(AmountOfGuns-1 > CurrentGun)
+            { 
+                _currentGun = initializedGuns[CurrentGun + 1];
+                CurrentGun++;
+                Debug.Log("swap to " + CurrentGun);
+            }
+            else if(AmountOfGuns-1 <= CurrentGun)
+            {
+                CurrentGun = 0;
+                _currentGun = initializedGuns[CurrentGun];
             }
         }
     }

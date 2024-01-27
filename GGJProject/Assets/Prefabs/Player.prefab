@@ -164,6 +164,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <GunData>k__BackingField: {fileID: 11400000, guid: 3398357d67a5b3a4eba68ae8b9d3c48b, type: 2}
+  guns:
+  - {fileID: 11400000, guid: a0d8114504f17e441b08d66edb66ccf2, type: 2}
+  - {fileID: 11400000, guid: d8e019ead7423824f8b51b14ed3458b5, type: 2}
+  - {fileID: 11400000, guid: 0764cb69dcce2fc438a8e6f9c0d48595, type: 2}
+  - {fileID: 11400000, guid: 3c743370266b03f48a7294955536d74f, type: 2}
   <ShootTransform>k__BackingField: {fileID: 7054911506937509590}
   <MovementSpeed>k__BackingField: 5
   <JumpSpeed>k__BackingField: 6
@@ -174,10 +179,6 @@ MonoBehaviour:
   <InputJumpName>k__BackingField: Jump
   <InputShootGunName>k__BackingField: Fire1
   <InputFastFallName>k__BackingField: FastFall
-  _playerRenderer: {fileID: 0}
-  _playerColor: {r: 0, g: 0, b: 0, a: 0}
-  DamageDuration: 0
-  _damageTime: 0
 --- !u!54 &4342455353211341123
 Rigidbody:
   m_ObjectHideFlags: 0
