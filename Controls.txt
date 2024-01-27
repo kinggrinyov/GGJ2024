@@ -1,0 +1,19 @@
+Player 1:
+W - Jump
+S - Fast fall
+A - Walk left
+D - Walk right
+
+Space - Shoot
+Q - Swap Weapon
+R - Reload
+
+
+Up - Jump
+Down - Fast fall
+Left - walk left
+Right - walk right
+
+numpad 1 - Shoot
+numpad 2 - Swap weapon
+numpad 3 - Reload
