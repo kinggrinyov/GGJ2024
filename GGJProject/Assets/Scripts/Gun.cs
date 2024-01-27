@@ -17,11 +17,12 @@ public class Gun
 
     public int CurrentAmmo { get; private set; }
 
+    private float _reloadTimer = 0;
+
+    public bool IsReloading => _reloadTimer > 0;
 
     public Gun(Transform shootTransform, GunData gunData, Transform playerTransform)
     {
-
-
         _ownerTransform = playerTransform;
         _shootTransform = shootTransform;
         GunData = gunData;
@@ -30,6 +31,11 @@ public class Gun
 
     public void Shoot()
     {
+        if(_reloadTimer > 0)
+        {
+            return;
+        }
+
         if (_firingCooldown > 0)
         {
             return;
@@ -70,5 +76,19 @@ public class Gun
     public void Update()
     {
         _firingCooldown -= Time.deltaTime;
+
+        if(_reloadTimer > 0)
+        {
+            _reloadTimer -= Time.deltaTime;
+            if(_reloadTimer <= 0)
+            {
+                CurrentAmmo = GunData.maxAmmo;
+            }
+        }
+    }
+
+    public void Reload()
+    {
+        _reloadTimer = GunData.ReloadDuration;
     }
 }

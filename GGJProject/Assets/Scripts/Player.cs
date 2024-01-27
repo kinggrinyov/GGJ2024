@@ -40,6 +40,9 @@ public class Player : MonoBehaviour
     [field: SerializeField]
     public string InputChangeWeapon { get; private set; } = "SwapWep";
 
+    [field: SerializeField]
+    public string InputReloadWeapon { get; private set; } = "Reload";
+
     [field:SerializeField]
     public Gun _currentGun = null;
 
@@ -92,6 +95,11 @@ public class Player : MonoBehaviour
         {
             Vector3 originalVelocity = _rigidbody.velocity;
             _rigidbody.velocity = new Vector3(originalVelocity.x, -FastFallSpeed, 0);
+        }
+
+        if(Input.GetButtonDown(InputReloadWeapon))
+        {
+            _currentGun.Reload();
         }
 
         _currentGun.Update();

@@ -27,4 +27,7 @@ public class GunData : ScriptableObject
 
     [field:SerializeField]
     public int maxAmmo { get; private set; }
+
+    [field: SerializeField]
+    public float ReloadDuration { get; private set; }
 }

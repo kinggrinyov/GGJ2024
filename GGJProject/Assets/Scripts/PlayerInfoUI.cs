@@ -16,7 +16,8 @@ public class PlayerInfoUI : MonoBehaviour
     private void Update()
     {
         _weaponText.text = "Weapon: " + _player._currentGun.GunData.DisplayName;
-        _ammoText.text = "Ammo: " + _player._currentGun.CurrentAmmo;
+        
+        _ammoText.text = "Ammo: " + (_player._currentGun.IsReloading ? "Reloading" : _player._currentGun.CurrentAmmo);
 
         _healthText.text = $"Health: {_player.CurrentHealth}";
     }
