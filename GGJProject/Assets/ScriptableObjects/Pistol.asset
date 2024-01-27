@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86110f8c9f2b0e4593176eb530074ba, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  <DisplayName>k__BackingField: Pistol
+  <DisplayName>k__BackingField: Tomato Launcher
   <ProjectilePrefab>k__BackingField: {fileID: 5025365187842286589, guid: db6d0d3b7a8c5e74ea42256e520eb9e3, type: 3}
   <ProjectileSpeed>k__BackingField: 900
   <ShootCooldown>k__BackingField: 0.2

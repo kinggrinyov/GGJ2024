@@ -34,7 +34,7 @@ public class GameInstance : MonoBehaviour
     {
         LastPlayerNameLost = deadPlayerName;
 
-        Invoke(nameof(GoToMainMenu), 0.70f);
+        Invoke(nameof(GoToMainMenu), 0.50f);
     }
 
     private void GoToMainMenu()

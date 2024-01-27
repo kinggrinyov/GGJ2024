@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86110f8c9f2b0e4593176eb530074ba, type: 3}
   m_Name: landmine
   m_EditorClassIdentifier: 
-  <DisplayName>k__BackingField: Mine Launcher
+  <DisplayName>k__BackingField: Mine Steak
   <ProjectilePrefab>k__BackingField: {fileID: 5333593059978358373, guid: 7e35d3263d1686d4eb46c71fecc131ba, type: 3}
   <ProjectileSpeed>k__BackingField: 200
   <ShootCooldown>k__BackingField: 2
