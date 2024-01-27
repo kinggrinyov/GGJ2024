@@ -21,4 +21,4 @@ MonoBehaviour:
   <damage>k__BackingField: 15
   <LifeSpan>k__BackingField: 30
   <maxAmmo>k__BackingField: 4
-  <ReloadDuration>k__BackingField: 3
+  <ReloadDuration>k__BackingField: 2
