@@ -38,14 +38,14 @@ public class Player : MonoBehaviour
 
     private float _currentHealth = 0;
 
-    public Renderer _playerRenderer = null;
+    private Renderer _playerRenderer = null;
 
     private bool _damageBool = false;
 
-    public Color _playerColor;
-    public float DamageDuration;
+    private Color _playerColor;
+    private float DamageDuration = 0.1f;
 
-    public float _damageTime = 0;
+    private float _damageTime = 0;
 
     void Awake()
     {
@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
 
         _playerColor = _playerRenderer.material.color;
 
-        DamageDuration = 0.1f;
     }
 
     // Update is called once per frame
