@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class Gun
 {
-    private GunData _gunData = null;
+    public GunData GunData { get; private set; } = null;
 
 
     float _firingCooldown = 0;
 
     private Transform _shootTransform = null;   
     private Transform _ownerTransform = null;
+
+    public int CurrentAmmo { get; private set; }
 
 
     public Gun(Transform shootTransform, GunData gunData, Transform playerTransform)
@@ -22,8 +24,8 @@ public class Gun
 
         _ownerTransform = playerTransform;
         _shootTransform = shootTransform;
-        _gunData = gunData;
-        _gunData.curAmmo = _gunData.maxAmmo;
+        GunData = gunData;
+        CurrentAmmo = GunData.maxAmmo;
     }
 
     public void Shoot()
@@ -33,27 +35,27 @@ public class Gun
             return;
         }
 
-        if(_gunData.curAmmo <= 0)
+        if(CurrentAmmo <= 0)
         {
             return;
         }
 
-        float segmentAngle = _gunData.ArcAngle / Mathf.Max(_gunData.ProjectileAmount - 1, 1);
-        float startingAngle = _gunData.ArcAngle / 2;
+        float segmentAngle = GunData.ArcAngle / Mathf.Max(GunData.ProjectileAmount - 1, 1);
+        float startingAngle = GunData.ArcAngle / 2;
 
 
-        for (int i = 0; i < _gunData.ProjectileAmount;i++)
+        for (int i = 0; i < GunData.ProjectileAmount;i++)
         {
             CreateandFireBullet(segmentAngle, startingAngle, i);
         }
 
-        _firingCooldown = _gunData.ShootCooldown;
+        _firingCooldown = GunData.ShootCooldown;
     }
 
     private void CreateandFireBullet(float arcAngle, float startAngle, int amount)
     {
-        GameObject bulletGo = Object.Instantiate(_gunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
-        bulletGo.GetComponent<Bullet>().Init(_ownerTransform, _gunData);
+        GameObject bulletGo = Object.Instantiate(GunData.ProjectilePrefab, _shootTransform.position, Quaternion.identity);
+        bulletGo.GetComponent<Bullet>().Init(_ownerTransform, GunData);
 
         Vector3 bulletDirection = _shootTransform.forward;
         bulletDirection.z = 0;
@@ -61,8 +63,8 @@ public class Gun
         bulletDirection = Quaternion.AngleAxis(startAngle - (arcAngle * amount), _shootTransform.right) * bulletDirection;
 
         bulletDirection.Normalize();
-        bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * _gunData.ProjectileSpeed);
-        _gunData.curAmmo--;
+        bulletGo.GetComponent<Rigidbody>().AddForce(bulletDirection * GunData.ProjectileSpeed);
+        CurrentAmmo--;
     }
 
     public void Update()

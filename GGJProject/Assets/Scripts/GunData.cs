@@ -4,6 +4,9 @@
 public class GunData : ScriptableObject
 {
     [field: SerializeField]
+    public string DisplayName { get; private set; }
+
+    [field: SerializeField]
     public GameObject ProjectilePrefab { get; private set; }
 
     [field: SerializeField]
@@ -24,6 +27,4 @@ public class GunData : ScriptableObject
 
     [field:SerializeField]
     public int maxAmmo { get; private set; }
-
-    public int curAmmo { get; set; }
 }

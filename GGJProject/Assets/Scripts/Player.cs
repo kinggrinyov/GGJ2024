@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     [field:SerializeField]
     public Gun _currentGun = null;
 
-    private float _currentHealth = 0;
+    public float CurrentHealth { get; private set; }
 
     private Renderer _playerRenderer = null;
 
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
         _groundChecker.OnGroundColliderEntered += ResetJumps;
 
-        _currentHealth = MaximumHealth;
+        CurrentHealth = MaximumHealth;
 
         _playerRenderer = this.GetComponentInChildren<Renderer>();
 
@@ -173,11 +173,16 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
+        if(CurrentHealth <= 0)
+        {
+            return;
+        }
+
         Debug.Log($"{gameObject.name} Took {damage} Damage");
 
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
 
-        if(_currentHealth > 0)
+        if(CurrentHealth > 0)
         {
             _damageBool = true;
             _playerRenderer.material.SetColor("_Color", Color.grey);
