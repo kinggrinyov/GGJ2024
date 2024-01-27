@@ -11,21 +11,7 @@ public class Cheese : Bullet
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Player>(out Player player))
-        {
-            if (player.transform == _ownerTransform)
-            {
-                return;
-            }
-        }
 
-        if (other.TryGetComponent<Cheese>(out Cheese cheese))
-        {
-            if (cheese._ownerTransform == _ownerTransform)
-            {
-                return;
-            }
-        }
     }
     private void OnTriggerStay(Collider other)
     {
