@@ -9,6 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private MMF_Player _deathFeedback = null;
 
+    [SerializeField]
+    private ParticleSystem _deathPfx;
+
+    [SerializeField]
+    private GameObject _model;
+
     [field:SerializeField]
     public GunData[] guns;
     private Gun[] initializedGuns;
@@ -207,8 +213,9 @@ public class Player : MonoBehaviour
     private void Die()
     {
         _deathFeedback.PlayFeedbacks();
+        _deathPfx.Play();
 
-        gameObject.SetActive(false);
+        _model.SetActive(false);
 
         Debug.Log($"{gameObject.name} Died");
         GameInstance.Instance.PlayerDied(gameObject.name);
