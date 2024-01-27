@@ -285,10 +285,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6065337764544568587, guid: 18ba9d643a859964b81916e2ae9c26ad, type: 3}
-      propertyPath: DamageDuration
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9039226342475498950, guid: 18ba9d643a859964b81916e2ae9c26ad, type: 3}
       propertyPath: m_Name
       value: PlayerTwo
@@ -448,22 +444,6 @@ PrefabInstance:
     - target: {fileID: 5022884531899107884, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5022884531899107884, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847942528657347297, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847942528657347297, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
-      propertyPath: DamageDuration
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7847942528657347297, guid: 4e6bc4ade9a793844905e8a91c69213e, type: 3}
-      propertyPath: <DamageDuration>k__BackingField
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
