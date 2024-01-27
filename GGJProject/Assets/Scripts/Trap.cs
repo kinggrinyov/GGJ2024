@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Trap : Bullet
 {
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<Player>(out Player player))
+        if (other.TryGetComponent<Player>(out Player player))
         {
             if (player.transform == _ownerTransform)
             {
                 return;
             }
             player.TakeDamage(_gundata.damage);
+
             Destroy(gameObject);
         }
 
@@ -24,12 +25,5 @@ public class Trap : Bullet
             }
             Destroy(gameObject);
         }
-    }
-
-    private void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer >= _gundata.LifeSpan)
-            Destroy(gameObject);
     }
 }
