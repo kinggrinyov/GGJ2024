@@ -8,9 +8,18 @@ public class GameInstance : MonoBehaviour
 {
     public static GameInstance Instance { get; private set; } = null;
 
+    public string LastPlayerNameLost { get; private set; }  = string.Empty;
+
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -21,12 +30,10 @@ public class GameInstance : MonoBehaviour
         }
     }
 
-    public void PlayerDied(string gameobjectName)
+    public void PlayerDied(string deadPlayerName)
     {
-        SceneManager.LoadScene("MainMenu");
+        LastPlayerNameLost = deadPlayerName;
         
-        //SEND THIS
-        string result = gameobjectName + "Wins!";
-
+        SceneManager.LoadScene("MainMenu");
     }
 }
